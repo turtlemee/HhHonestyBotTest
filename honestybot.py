@@ -11,7 +11,6 @@ def start(message):
     markup.add(btn1)
     bot.send_message(message.from_user.id, "👋 Привет! Я твой бот-помошник!", reply_markup=markup)
 
-@bot.message_handler(content_types=['text'])
 def get_text_messages(message):
 
     if message.text == '👋 Поздороваться':
@@ -32,5 +31,6 @@ def get_text_messages(message):
     elif message.text == 'Советы по оформлению публикации':
         bot.send_message(message.from_user.id, 'Подробно про советы по оформлению публикаций прочитать по ' + '[ссылке](https://habr.com/ru/docs/companies/design/)', parse_mode='Markdown')
 
+@bot.message_handler(content_types=['text'])
 
 bot.polling(none_stop=True, interval=0) #обязательная для работы бота часть
